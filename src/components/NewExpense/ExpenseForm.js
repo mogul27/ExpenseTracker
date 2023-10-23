@@ -7,6 +7,11 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [enteredCategory, setEnteredCategory] = useState("");
+
+  // Choices for category dropdown
+  const categoryChoices = ["Misc", "Housing", "Bills", "Entertainment", "Fitness",
+                          "Phone"];
 
   // Whenever you update state and depend on previous state
   // You should call the function and pass a function to it
@@ -23,6 +28,10 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
+  const categoryChangeHandler = (event) => {
+    setEnteredCategory(event.target.value);
+  };
+
   const submitHandler = (event) => {
     // Stops the default request being sent to webserver and reloading the page
     event.preventDefault();
@@ -31,6 +40,7 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
       amount: +enteredAmount,
       date: new Date(enteredDate),
+      category: enteredCategory
     };
 
     // Execute the function passed as a prop to the ExpenseForm component
@@ -78,10 +88,22 @@ const ExpenseForm = (props) => {
             onChange={dateChangeHandler}
           />
         </div>
+        <div className="new-expense__control">
+          <label>Category</label>
+          <select value={enteredCategory} onChange={categoryChangeHandler}>
+            {categoryChoices.map((choice, index) => (
+              <option key={index} value={choice}>
+                {choice}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="new-expense__actions">
         {/* Use type button to stop button from submitting the form */}
-        <button type="button" onClick={props.onCancel}>Cancel</button>
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

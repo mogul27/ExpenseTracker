@@ -19,6 +19,7 @@ if (props.items.length === 0) {
         title={expense.title}
         amount={expense.amount}
         date={expense.date}
+        category={expense.category}
         />
     ))}
   </ul>
