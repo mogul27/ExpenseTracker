@@ -13,8 +13,6 @@ const ExpensesFilter = (props) => {
 
   const [selectedDate, setSelectedDate] = useState(currentDate)
 
-
-
   const dateChangeHandler = (date) => {
     setSelectedDate(date);
     props.onChangeFilter(date);

@@ -31,6 +31,7 @@ const Expenses = (props) => {
 
   // Define function insdie the arrow notation
   const filteredExpenses = props.items.filter(expense => {
+    console.log(expense.date)
     return check_dates_match(expense.date, filteredMonth);
   });
 
