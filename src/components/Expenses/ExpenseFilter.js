@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactDatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
 
 import "./ExpenseFilter.css";
 
 const ExpensesFilter = (props) => {
-  const selectYearHandler = (event) => {
-    // Passing it up to Expenses where onChangeFilter is a prop
-    props.onChangeFilter(event.target.value);
-  };
+
+    // We want to only be able to select previous months up to next month
+    const currentDate = new Date();
+    const maxDate = new Date();
+    maxDate.setMonth(maxDate.getMonth() + 1)
+
+  const [selectedDate, setSelectedDate] = useState(currentDate)
+
+
+
+  const dateChangeHandler = (date) => {
+    setSelectedDate(date);
+    props.onChangeFilter(date);
+  }
 
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
-        <label>Filter by year</label>
-        <select value={props.selected} onChange={selectYearHandler}>
-          <option value="All">All</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-        </select>
+        <label>Committed expenses for: </label>
+        <ReactDatePicker selected={selectedDate}
+        onChange={dateChangeHandler}
+        dateFormat={"MM/yyyy"}
+        showMonthYearPicker
+        showIcon
+        maxDate={(maxDate)}
+        />
       </div>
     </div>
   );
