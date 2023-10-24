@@ -6,6 +6,7 @@ import './Chart.css';
 const Chart = (props) => {
   const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value);
   const totalMaximum = Math.max(...dataPointValues);
+  const totalValue = dataPointValues.reduce((total, current) => total + current, 0);
 
   return (
     <div className='chart'>
@@ -15,6 +16,7 @@ const Chart = (props) => {
           value={dataPoint.value}
           maxValue={totalMaximum}
           label={dataPoint.label}
+          totalValue={totalValue}
         />
       ))}
     </div>
