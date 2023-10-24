@@ -10,6 +10,8 @@ const Chart = (props) => {
 
   return (
     <div className='chart'>
+      <h4>Total Committed Spending</h4>
+      <h5>{totalValue}</h5>
       {props.dataPoints.map((dataPoint) => (
         <ChartBar
           key={dataPoint.label}
