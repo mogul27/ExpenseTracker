@@ -23,3 +23,6 @@
     font-weight: bold;
     border-radius: 6px;
   }
+  .react-datepicker__view-calendar-icon input {
+    border-radius: 10px;
+}
