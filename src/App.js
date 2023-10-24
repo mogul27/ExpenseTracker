@@ -23,7 +23,14 @@ const initialExpenses = [
     id: "e4",
     title: "New Desk (Wooden)",
     amount: 450,
-    date: new Date(2021, 5, 12),
+    date: new Date(2021,5, 12),
+    category: "Misc",
+  },
+  {
+    id: "e5",
+    title: "Books",
+    amount: 450,
+    date: new Date(2023,9, 12),
     category: "Misc",
   },
 ];
