@@ -7,3 +7,15 @@
     justify-content: space-around;
     height: 10rem;
   }
+
+.total_spend_container {
+  text-align: center;
+  }
+
+h4 {
+  color: white;
+}
+
+h1 {
+  color: white;
+}

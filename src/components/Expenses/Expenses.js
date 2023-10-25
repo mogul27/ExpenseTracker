@@ -22,7 +22,7 @@ function check_dates_match(date1, date2) {
 
 const Expenses = (props) => {
 
-  const currentDate = new Date();
+  let currentDate = new Date();
   const [filteredMonth, setFilteredMonth] = useState(currentDate);
 
   const filterChangeHandler = (selectedMonth) => {

@@ -2,16 +2,17 @@ import "./ExpenseForm.css";
 import React, { useState } from "react";
 
 const ExpenseForm = (props) => {
+
+    // Choices for category dropdown
+  const categoryChoices = ["Misc", "Housing", "Bills", "Entertainment", "Fitness",
+  "Phone"];
+
   // Can have multiple states in one component
   // Or you can use just one state
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  const [enteredCategory, setEnteredCategory] = useState("");
-
-  // Choices for category dropdown
-  const categoryChoices = ["Misc", "Housing", "Bills", "Entertainment", "Fitness",
-                          "Phone"];
+  const [enteredCategory, setEnteredCategory] = useState(categoryChoices[0]);
 
   // Whenever you update state and depend on previous state
   // You should call the function and pass a function to it
@@ -49,6 +50,7 @@ const ExpenseForm = (props) => {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setEnteredCategory("");
   };
 
   return (
